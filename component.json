@@ -1,0 +1,17 @@
+{
+  "name": "focus-trap",
+  "repo": "stephenmathieson/focus-trap",
+  "description": "Trap focus within an element",
+  "version": "0.0.0",
+  "keywords": [ "focus", "trap", "modal" ],
+  "dependencies": {
+    "component/event": "*",
+    "stephenmathieson/normalize": "*",
+    "stephenmathieson/focusable-elements": "*"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ]
+}

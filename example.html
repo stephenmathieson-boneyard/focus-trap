@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>focus trap</title>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/mocha/1.13.0/mocha.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/mocha/1.13.0/mocha.min.css">
+    <script src="build/build.js"></script>
+    <script>mocha.setup('bdd')</script>
+    <style type="text/css">
+      #modal {
+        background-color: #eee;
+        border: 2px solid black;
+        width: 500px;
+        margin: 100px auto;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <a href="http://google.com">google.com</a>
+
+    <div id="modal">
+      <h1>Important form to fill out</h1>
+      <form>
+        <button id="start" type="button">start trapping focus</button>
+
+        <div>
+          <label for="firstname">first name:</label>
+          <input type="text" id="firstname">
+        </div>
+        <div>
+          <label for="lastname">last name:</label>
+          <input type="text" id="lastname">
+        </div>
+        <div>
+          <label for="age">age:</label>
+          <input type="text" id="age">
+        </div>
+        <div>
+          <label for="flavor">favorite ice cream flavor:</label>
+          <select>
+            <option>chocolate</option>
+            <option>vanilla</option>
+            <option>ham</option>
+          </select>
+        </div>
+
+        <button id="stop" type="button">stop trapping focus</button>
+      </form>
+    </div>
+
+    <a href="http://bing.com">bing.com</a>
+
+    <script>
+      var trap = require('focus-trap');
+      var ev = require('event');
+
+      var fn = null;
+      var modal = document.getElementById('modal');
+      var stop = document.getElementById('stop');
+      var start = document.getElementById('start');
+
+      stop.onclick = function () {
+        if (fn) ev.unbind(modal, 'keydown', fn), fn = null;;
+      };
+
+      start.onclick = function () {
+        fn = trap(modal);
+      };
+
+
+    </script>
+  </body>
+</html>
