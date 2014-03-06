@@ -2,7 +2,7 @@
   "name": "focus-trap",
   "repo": "stephenmathieson/focus-trap",
   "description": "Trap focus within an element",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "keywords": [ "focus", "trap", "modal" ],
   "dependencies": {
     "component/event": "*",
