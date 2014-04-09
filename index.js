@@ -25,15 +25,15 @@ function focusTrap(container) {
   return ev.bind(container, 'keydown', function (keyboardEvent) {
     keyboardEvent = normalize(keyboardEvent);
 
-    if (9 !== keyboardEvent.which) return;
+    if (9 != keyboardEvent.which) return;
 
     if (keyboardEvent.shiftKey) {
-      if (first === keyboardEvent.target) {
+      if (first == keyboardEvent.target) {
         keyboardEvent.preventDefault();
         last.focus();
       }
     } else {
-      if (last === keyboardEvent.target) {
+      if (last == keyboardEvent.target) {
         keyboardEvent.preventDefault();
         first.focus();
       }

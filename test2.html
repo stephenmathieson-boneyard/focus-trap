@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>focus trap</title>
+    <script src="build/build.js"></script>
+    <style type="text/css">
+      #modal {
+        background-color: #eee;
+        border: 2px solid black;
+        width: 500px;
+        margin: 100px auto;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <button id="launch">launch</button>
+
+    <div id="modal" style="display:none">
+      <div tabindex="-1">
+        <p>Lorem ipsum Amet id ex fugiat commodo id.</p>
+        <p>
+          Lorem ipsum Non in laborum ea consequat magna et
+          in cillum proident quis ad Duis et amet sint Ut
+          in ea.
+        </p>
+        <p>
+          Lorem ipsum Consectetur id reprehenderit pariatur ullamco
+          pariatur Excepteur in commodo irure aliquip aute in ad
+          adipisicing nulla cupidatat in incididunt id dolore cillum
+          occaecat anim.
+        </p>
+        <button>tab stop</button>
+        <p>
+          Lorem ipsum Tempor minim aliqua Duis occaecat proident amet
+          ex sint enim exercitation irure Ut aute consequat dolore
+          irure sit ex laborum ullamco eu aliqua in Duis amet sint ea
+          ad eiusmod ut laborum sunt commodo Duis Duis ut sint esse ut
+          pariatur amet Ut proident velit in non velit non anim do sint
+          aute sed in amet fugiat nostrud labore Duis in velit ea
+          consequat aliqua dolore Duis cillum ut et non tempor ex sit
+          est velit pariatur ea reprehenderit irure pariatur aute id eu
+          reprehenderit velit ullamco occaecat commodo adipisicing sint
+          Duis id tempor ullamco id dolore cupidatat Duis commodo sint consectetur mollit sunt nisi officia consequat eiusmod
+          exercitation fugiat ullamco qui ad exercitation in id
+          consectetur dolore sint incididunt in exercitation dolor dolor
+          enim nisi aute amet adipisicing in commodo esse dolore eu
+          adipisicing incididunt reprehenderit et adipisicing deserunt eu
+          in sit ea incididunt proident in ut eu dolore pariatur veniam
+          nulla ut sint sint sint eu qui incididunt ut voluptate dolore
+          aute fugiat laborum qui quis amet officia sunt cupidatat Ut
+          dolor aliqua Ut officia laboris labore eiusmod reprehenderit
+          consequat voluptate amet mollit id aute aliquip amet exercitation
+          ut anim pariatur nostrud ex deserunt eu ullamco tempor in
+          voluptate elit ullamco reprehenderit fugiat adipisicing
+          exercitation ut dolor ea in proident consequat elit Excepteur
+          amet veniam laborum Ut dolore exercitation mollit dolor et
+          laborum consectetur consectetur est Excepteur elit quis officia
+          sit Duis aliquip commodo ex in irure tempor nulla aliqua
+          adipisicing sunt.
+        </p>
+      </div>
+    </div>
+
+    <script>
+    ~function () {
+      var launch = document.getElementById('launch');
+      var modal = document.getElementById('modal');
+
+      launch.onclick = function () {
+        var display = 'none' == modal.style.display ? 'block' : 'none';
+        modal.style.display = display;
+      }
+    }()
+    </script>
+
+    <script>
+    ~function () {
+      var trap = require('focus-trap');
+      trap(document.getElementById('modal'));
+    }()
+    </script>
+  </body>
+</html>
